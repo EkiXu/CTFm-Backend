@@ -1,0 +1,27 @@
+# CTFm Global Configuration
+
+mysql:
+    username: ctfm
+    password: 'mysqlpasswd'
+    path: '127.0.0.1:3306'
+    db-name: 'ctfm'
+    config: 'charset=utf8&parseTime=True&loc=Local'
+    max-idle-conns: 10
+    max-open-conns: 10
+    log-mode: false
+
+# system configuration
+system:
+    env: 'public'  # Change to "develop" to generator swagger docs
+    addr: 8668
+
+# jwt configuration
+jwt:
+    signing-key: 'modifyityourself'
+
+# logger configuration
+log:
+    prefix: '[CTFm]'
+    log-file: true
+    stdout: 'DEBUG'
+    file: 'DEBUG'
