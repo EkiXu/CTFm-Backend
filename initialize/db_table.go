@@ -9,6 +9,7 @@ import (
 func DBTables() {
 	db := global.CTFM_DB
 	db.AutoMigrate(models.User{},
-		models.JwtBlacklist{})
+		models.JwtBlacklist{},
+		models.Challenge{})
 	global.CTFM_LOG.Debug("register table success")
 }

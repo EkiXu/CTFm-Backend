@@ -41,9 +41,9 @@ func RegisterAPI(c *gin.Context) {
 	user := &models.User{Username: R.Username, Nickname: R.Nickname, Email: R.Email, Password: R.Password}
 	err, userReturn := services.Register(*user)
 	if err != nil {
-		response.FailWithDetailed(response.ERROR, resp.SysUserResponse{User: userReturn}, fmt.Sprintf("%v", err), c)
+		response.FailWithDetailed(response.ERROR, resp.UserResponse{User: userReturn}, fmt.Sprintf("%v", err), c)
 	} else {
-		response.OkDetailed(resp.SysUserResponse{User: userReturn}, "注册成功", c)
+		response.OkDetailed(resp.UserResponse{User: userReturn}, "注册成功", c)
 	}
 }
 

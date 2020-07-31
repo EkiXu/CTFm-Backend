@@ -29,6 +29,7 @@ func Routers() *gin.Engine {
 
 	router.InitUserRouter(apiGroup) // 注册用户路由
 	router.InitJWTRouter(apiGroup)  // 注册JWT路由
+	router.InitChallengeRouter(apiGroup)
 	global.CTFM_LOG.Info("router register success")
 
 	return r

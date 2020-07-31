@@ -23,7 +23,6 @@ func Register(u models.User) (err error, userInter models.User) {
 	if !notRegister {
 		return errors.New("用户名已注册"), userInter
 	} else {
-		// 否则 附加uuid 密码md5简单加密 注册
 		u.Password = utils.MSHA256([]byte(u.Password))
 		u.UUID = uuid.NewV4()
 		err = global.CTFM_DB.Create(&u).Error

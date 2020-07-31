@@ -4,7 +4,7 @@ import (
 	"ctfm_backend/models"
 )
 
-type SysUserResponse struct {
+type UserResponse struct {
 	User models.User `json:"user"`
 }
 
