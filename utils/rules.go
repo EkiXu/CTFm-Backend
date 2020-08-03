@@ -1,8 +1,10 @@
 package utils
 
 import (
+	"ctfm_backend/global"
 	"errors"
 	"reflect"
+	"regexp"
 	"strconv"
 	"strings"
 )
@@ -16,7 +18,7 @@ var CustomizeMap = make(map[string]Rules)
 // 注册自定义规则方案建议在路由初始化层即注册
 func RegisterRule(key string, rule Rules) (err error) {
 	if CustomizeMap[key] != nil {
-		return errors.New(key + "已注册,无法重复注册")
+		return errors.New(key + "Already registered and cannot be re-registered")
 	} else {
 		CustomizeMap[key] = rule
 		return nil
@@ -204,4 +206,22 @@ func compare(value interface{}, VerifyStr string) bool {
 	default:
 		return false
 	}
+}
+
+func IsValidEmail(data string) (res bool) {
+	reg := regexp.MustCompile(`.+@.+\..+`)
+	res = reg.MatchString(data)
+	return
+}
+
+func IsValidName(data string) (res bool) {
+	reg, _ := regexp.Compile(`^[a-zA-Z0-9_-]{3,16}$`)
+	res = reg.MatchString(data)
+	return
+}
+
+func IsValidFlag(data string) (res bool) {
+	reg := regexp.MustCompile(global.CTFM_CONFIG.Challenge.FlagFormat)
+	res = reg.MatchString(data)
+	return
 }

@@ -23,8 +23,8 @@ func JsonInBlacklist(c *gin.Context) {
 	}
 	err := services.JsonInBlacklist(modelJwt)
 	if err != nil {
-		response.FailWithMessage(fmt.Sprintf("jwt作废失败，%v", err), c)
+		response.FailWithMessage(fmt.Sprintf("jwt successfully Blocked ，%v", err), c)
 	} else {
-		response.OkWithMessage("jwt作废成功", c)
+		response.OkWithMessage("jwt block Failed", c)
 	}
 }

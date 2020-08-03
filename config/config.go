@@ -1,15 +1,20 @@
 package config
 
 type Server struct {
-	Mysql  Mysql  `mapstructure:"mysql" json:"mysql" yaml:"mysql"`
-	System System `mapstructure:"system" json:"system" yaml:"system"`
-	JWT    JWT    `mapstructure:"jwt" json:"jwt" yaml:"jwt"`
-	Log    Log    `mapstructure:"log" json:"log" yaml:"log"`
+	Mysql     Mysql     `mapstructure:"mysql" json:"mysql" yaml:"mysql"`
+	System    System    `mapstructure:"system" json:"system" yaml:"system"`
+	JWT       JWT       `mapstructure:"jwt" json:"jwt" yaml:"jwt"`
+	Log       Log       `mapstructure:"log" json:"log" yaml:"log"`
+	Challenge Challenge `mapstructure:"challenge" json:"challlenge" yaml:"challenge"`
 }
 
 type System struct {
 	Env  string `mapstructure:"env" json:"env" yaml:"env"`
 	Addr int    `mapstructure:"addr" json:"addr" yaml:"addr"`
+}
+
+type Challenge struct {
+	FlagFormat string `mapstructure:"flagFormat" json:"flag_format" yaml:"flagFormat"`
 }
 
 type Mysql struct {
